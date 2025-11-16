@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheat Grain Quality Classification Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=2.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <span class="wheat-icon">🌾</span>
+                <h1 class="header-title">Wheat Grain Quality Classification Dashboard</h1>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Image Uploading Card -->
+                <div class="card">
+                    <h2 class="card-title">Image Uploading</h2>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="fileInput" multiple accept="image/*" hidden>
+                        <div class="upload-content">
+                            <div class="upload-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                    <polyline points="17 8 12 3 7 8"></polyline>
+                                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                                </svg>
+                            </div>
+                            <p class="upload-text">Drag & drop images here</p>
+                        </div>
+                    </div>
+                    <div class="file-list" id="fileList"></div>
+                    <button class="btn-process" id="processBtn" disabled>Process Images</button>
+                </div>
+
+                <!-- Grade Summary Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Grade Summary</h2>
+                        <a href="#" class="preview-link" id="previewLink">Preview ></a>
+                    </div>
+                    <div class="grade-preview" id="gradePreview">
+                        <p class="empty-message">No images processed yet</p>
+                    </div>
+                    <div class="recent-info">
+                        <span class="recent-badge">Predicted Recently</span>
+                        <p class="recent-text">For the latest batch of images</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Prediction Result Card -->
+                <div class="card prediction-card" id="predictionCard" style="display: none;">
+                    <h2 class="card-title">Prediction Result</h2>
+                    <div class="prediction-content">
+                        <div class="prediction-image-container">
+                            <img id="predictionImage" src="" alt="Wheat grain" class="prediction-image">
+                        </div>
+                        <div class="prediction-details">
+                            <div class="grade-badge" id="gradeBadge">
+                                <span>Grade</span>
+                            </div>
+                            <p class="grade-description" id="gradeDescription"></p>
+                            <div class="prediction-meta">
+                                <span class="meta-badge">Predicted Recently</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Summary Card -->
+                <div class="card data-summary-card">
+                    <h2 class="card-title">Data Summary</h2>
+                    <div class="summary-content">
+                        <div class="progress-section">
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="progressBar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="summary-stats" id="summaryStats">
+                            <div class="stat-item">
+                                <span class="stat-value" id="imageCount">0</span>
+                                <span class="stat-label">images</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="runtimeValue">0.00</span>
+                                <span class="stat-label">Grades at Runtime (seconds)</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-value" id="totalTimeValue">0.00</span>
+                                <span class="stat-label">Total Processing Time (seconds)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Report Generation Card -->
+                <div class="card" id="reportCard" style="display: none;">
+                    <h2 class="card-title">Generate Report</h2>
+                    <p class="report-description">Download a detailed PDF report with all classification results, statistics, and images.</p>
+                    <button class="btn-download" id="downloadReportBtn">
+                        <span class="btn-icon">📄</span>
+                        <span>Download PDF Report</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=2.0"></script>
+</body>
+</html>
+
