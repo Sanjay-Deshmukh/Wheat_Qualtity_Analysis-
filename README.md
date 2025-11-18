@@ -16,8 +16,11 @@ It is designed for agricultural automation, quality control, and AI-based food i
 
 This project uses a custom wheat grain image dataset created and uploaded by me. I have open sourced this Dataset on Kaggle and Hugging face.
 
-👉 **Dataset Link:**
+👉 **Dataset Link 1:**
 [https://www.kaggle.com/datasets/sanjaydeshmukh1212/wheat-grading-and-type-dataset](https://www.kaggle.com/datasets/sanjaydeshmukh1212/wheat-grading-and-type-dataset)
+
+👉 **Dataset Link 2:**
+[https://huggingface.co/datasets/SamWithAi/Wheat_Grading_Dataset](https://huggingface.co/datasets/SamWithAi/Wheat_Grading_Dataset)
 
 ---
 
